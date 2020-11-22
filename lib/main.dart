@@ -1,11 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:insoulsocial/pages/welcome.dart';
 import 'package:insoulsocial/route_generator.dart';
-
 import 'package:splashscreen/splashscreen.dart';
 
 import 'helpers/constants.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,9 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.white,
-      ),
+          primaryColor: kPrimaryColor, scaffoldBackgroundColor: Colors.white),
       home: SplashScreen(
         seconds: 1,
         // navigateAfterSeconds: LoginPage(),

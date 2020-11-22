@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:insoulsocial/models/user.dart';
 import 'package:insoulsocial/service/firebase_auth.dart';
 import '../../widgets/header.dart';
-import '';
 
 class Timeline extends StatefulWidget {
   @override

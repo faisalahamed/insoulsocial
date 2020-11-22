@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../service/firebase_auth.dart';
 import '../../Login/login_screen.dart';
 import 'background.dart';
 import 'or_divider.dart';
@@ -9,7 +10,16 @@ import '../../../../components/rounded_input_field.dart';
 import '../../../../components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  String email;
+  String password;
+  final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -29,14 +39,23 @@ class Body extends StatelessWidget {
             ),
             RoundedInputField(
               hintText: "Your Email",
-              onChanged: (value) {},
+              onChanged: (value) {
+                email = value;
+              },
             ),
             RoundedPasswordField(
-              onChanged: (value) {},
+              onChanged: (value) {
+                password = value;
+              },
             ),
             RoundedButton(
               text: "SIGNUP",
-              press: () {},
+              press: () {
+                _firebaseAuthService
+                    .signup(email, password)
+                    .then((user) => print('user'))
+                    .catchError((onError) => print(onError));
+              },
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
