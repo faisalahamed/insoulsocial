@@ -32,7 +32,7 @@
 /build/
 
 # Firebase related 
-/android/app/google-services.json
+/android/app/*.json
 android/app/google-services.json
 
 # Web related
