@@ -32,8 +32,8 @@
 /build/
 
 # Firebase related 
-/android/app/*.json
-android/app/google-services.json
+**/android/app/*.json
+
 
 # Web related
 lib/generated_plugin_registrant.dart
